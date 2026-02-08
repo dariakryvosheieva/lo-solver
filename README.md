@@ -11,7 +11,7 @@ The solver does not use any third-party Python libraries.
 
 1. Clone the repo:
 ```bash
-git clone dariakryvosheieva/lo-solver.git
+git clone https://github.com/dariakryvosheieva/lo-solver.git
 ```
 2. Try it:
 ```bash
