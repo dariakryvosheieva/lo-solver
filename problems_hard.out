@@ -1,0 +1,80 @@
+Word order: S - O - V
+Morpheme order (N): root - number
+Morpheme order (V): subject - root - number
+Vocabulary:
+  (a, pl)
+  (bael, drink)
+  (bain, elder)
+  (bauel, hold)
+  (del, oil)
+  (j, you)
+  (k, they)
+  (karab, animal)
+  (koro, water)
+  (lemel, lick)
+  (rigel, tie)
+  (ruñel, lift)
+  (ton, house)
+  (tuumel, build)
+  (yáa, woman)
+Rules:
+1 2⟶MET / [ +glide ] _ 
+1 2⟶MET / k _ 
+Time taken: 893.75 s
+Morpheme order (N): root - number - possessor - case
+Vocabulary:
+  (cerku, house)
+  (ci, hand)
+  (juɕ, swan)
+  (kok, foot)
+  (kəin, wolf)
+  (kət, with)
+  (la, for the sake of)
+  (laɲ, towards)
+  (liɕ, from)
+  (lən, of)
+  (nez, pl)
+  (nɨs, their)
+  (nɨt, your-pl)
+  (pon, dog)
+  (purt, knife)
+  (pɨzan, desk)
+  (tɨ, lake)
+  (vər, forest)
+  (ə, my)
+  (ɨs, his)
+  (ɨt, your-sg)
+Rules:
+(number, pl): [ -bilabial ]⟶Ø / [ +tense ] + _ 
+(number, pl): [ -tense ]⟶-1 / + _ 
+Time taken: 441.40 s
+Word order: Poss - none
+Morpheme order (N): possessive - root - case - like - number - only
+Vocabulary:
+  (kom, post)
+  (kot^sʌk, mountain)
+  (kotoya, for)
+  (kumguy, town)
+  (kʌmʌŋ, shadow)
+  (kʌsmʌ, above)
+  (mis, you)
+  (mok, corn)
+  (n, possessive)
+  (nakpat, cactus)
+  (pahsun, squash)
+  (perol, kettle)
+  (pit, with)
+  (pokskuy, chair)
+  (t^sap, sky)
+  (t^say, vine)
+  (taʔm, pl)
+  (tih, only)
+  (tʌt^s, tooth)
+  (šeh, like)
+  (ʔʌs, I)
+Rules:
+[ +nasal ]⟶Ø / _ [ +nasal ]
+[ -low ]⟶[ +voice ] / [ +nasal ] _ 
+y k⟶MET / _ 
+left neighbor of (root, post): [ +alveolar ]⟶ŋ / _ +
+Time taken: 1551.89 s
