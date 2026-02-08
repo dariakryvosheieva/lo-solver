@@ -15,6 +15,7 @@ git clone https://github.com/dariakryvosheieva/lo-solver.git
 ```
 2. Try it:
 ```bash
+cd lo-solver
 python problems_easy.py
 ```
 
@@ -155,8 +156,6 @@ solve(fur, type="rosetta")
 ```
 
 </details>
-
-<br>
 
 See `problems_easy.py` and `problems_hard.py` for more examples.
 
