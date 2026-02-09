@@ -59,6 +59,57 @@ mizo = [
     ),
 ]
 
+# NACLO 2008 R1, problem A
+apinaye = [
+	(
+		"Kukrɛ̃ kokoi.",
+		[
+			({"root": "monkey"}, "N", "S"),
+			({"root": "eat"}, "V", "V"),
+		],
+	),
+	(
+		"Ape kra.",
+		[
+			({"root": "child"}, "N", "S"),
+			({"root": "work"}, "V", "V"),
+		],
+	),
+	(
+		"Ape kokoi ratš.",
+		[
+			({"root": "big"}, "Adj", "Adj"),
+			({"root": "monkey"}, "N", "S"),
+			({"root": "work"}, "V", "V"),
+		],
+	),
+	(
+		"Ape mï mɛtš.",
+		[
+			({"root": "good"}, "Adj", "Adj"),
+			({"root": "man"}, "N", "S"),
+			({"root": "work"}, "V", "V"),
+		],
+	),
+	(
+		"Ape mɛtš kra.",
+		[
+			({"root": "child"}, "N", "S"),
+			({"root": "work"}, "V", "V"),
+			({"root": "good"}, "Adv", "Adv"),
+		],
+	),
+	(
+		"Ape punui mï piŋɛtš.",
+		[
+			({"root": "old"}, "Adj", "Adj"),
+			({"root": "man"}, "N", "S"),
+			({"root": "work"}, "V", "V"),
+			({"root": "bad"}, "Adv", "Adv"),
+		],
+	),
+]
+
 # UKLO 2013 Foundation P2
 zapotec = [
 	(
@@ -372,6 +423,7 @@ zuni = [
 
 if __name__ == "__main__":
 	solve(mizo, type="rosetta")
+	solve(apinaye, type="rosetta")
 	solve(zapotec, type="rosetta")
 	solve(nung, type="rosetta")
 	solve(zuni, type="rosetta")
