@@ -163,6 +163,94 @@ permyak = [
     ),
 ]
 
+# NACLO 2018 R2, problem O
+tamil = [
+	(
+		"paṭittēn",
+		[
+			({"subject": "I", "root": "learn", "tense": "PST"}, "V", "V"),
+		],
+	),
+	(
+		"paṭippīr",
+		[
+			({"subject": "you-pl", "root": "learn", "tense": "FUT"}, "V", "V"),
+		],
+	),
+	(
+		"ceyyān",
+		[
+			({"subject": "he", "root": "do", "tense": "NEG"}, "V", "V"),
+		],
+	),
+	(
+		"paṭiyēn",
+		[
+			({"subject": "I", "root": "learn", "tense": "NEG"}, "V", "V"),
+		],
+	),
+	(
+		"arippāy",
+		[
+			({"subject": "you-sg", "root": "know", "tense": "FUT"}, "V", "V"),
+		],
+	),
+	(
+		"paṭittāy",
+		[
+			({"subject": "you-sg", "root": "learn", "tense": "PST"}, "V", "V"),
+		],
+	),
+	(
+		"arittān",
+		[
+			({"subject": "he", "root": "know", "tense": "PST"}, "V", "V"),
+		],
+	),
+	(
+		"aarambippāy",
+		[
+			({"subject": "you-sg", "root": "begin", "tense": "FUT"}, "V", "V"),
+		],
+	),
+	(
+		"aarambippōm",
+		[
+			({"subject": "we", "root": "begin", "tense": "FUT"}, "V", "V"),
+		],
+	),
+	(
+		"aarambiyēn",
+		[
+			({"subject": "I", "root": "begin", "tense": "NEG"}, "V", "V"),
+		],
+	),
+	(
+		"paṭittāl",
+		[
+			({"subject": "she", "root": "learn", "tense": "PST"}, "V", "V"),
+		],
+	),
+	(
+		"ceyppēn",
+		[
+			({"subject": "I", "root": "do", "tense": "FUT"}, "V", "V"),
+		],
+	),
+	(
+		"ceyyēn",
+		[
+			({"subject": "I", "root": "do", "tense": "NEG"}, "V", "V"),
+		],	
+	),
+	(
+		"ceyppār",
+		[
+			({"subject": "they", "root": "do", "tense": "FUT"}, "V", "V"),
+		],
+	),
+]
+
 # IOL 2008 P4
 zoque = [
 	(
@@ -275,4 +363,5 @@ zoque = [
 if __name__ == "__main__":
 	solve(fur, type="rosetta")
 	solve(permyak, type="rosetta")
+	solve(tamil, type="rosetta")
 	solve(zoque, type="rosetta")

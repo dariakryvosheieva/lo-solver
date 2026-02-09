@@ -20,7 +20,7 @@ Vocabulary:
 Rules:
 1 2⟶MET / [ +glide ] _ 
 1 2⟶MET / k _ 
-Time taken: 893.75 s
+Time taken: 878.27 s
 Morpheme order (N): root - number - possessor - case
 Vocabulary:
   (cerku, house)
@@ -47,7 +47,24 @@ Vocabulary:
 Rules:
 (number, pl): [ -bilabial ]⟶Ø / [ +tense ] + _ 
 (number, pl): [ -tense ]⟶-1 / + _ 
-Time taken: 441.40 s
+Time taken: 412.57 s
+Morpheme order (V): root - tense - subject
+Vocabulary:
+  (aarambi, begin)
+  (ari, know)
+  (āl, she)
+  (ān, he)
+  (ār, they)
+  (āy, you-sg)
+  (cey, do)
+  (ēn, I)
+  (īr, you-pl)
+  (ōm, we)
+  (paṭi, learn)
+  (pp, FUT)
+  (tt, PST)
+  (y, NEG)
+Time taken: 2253.55 s
 Word order: Poss - none
 Morpheme order (N): possessive - root - case - like - number - only
 Vocabulary:
@@ -77,4 +94,4 @@ Rules:
 [ -low ]⟶[ +voice ] / [ +nasal ] _ 
 y k⟶MET / _ 
 left neighbor of (root, post): [ +alveolar ]⟶ŋ / _ +
-Time taken: 1551.89 s
+Time taken: 1415.67 s

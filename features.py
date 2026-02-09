@@ -449,9 +449,18 @@ for fm in [simpleFeatureMap, sophisticatedFeatureMap]:
         base_features = list(fm[v])
         add_features_without_duplicates(base_features, longVowel)
         fm[v + ":"] = base_features
+        # Treat macron long vowels as aliases of ":" long vowels.
+        base_features = list(fm[v])
+        add_features_without_duplicates(base_features, longVowel)
+        fm[v + "̄"] = base_features
         base_features = list(fm[v])
         add_features_without_duplicates(base_features, [longVowel, highTone])
         fm[v + "́:"] = base_features
+        # High-tone long with macron (support both combining-mark orders).
+        base_features = list(fm[v])
+        add_features_without_duplicates(base_features, [longVowel, highTone])
+        fm[v + "́̄"] = base_features
+        fm[v + "̄́"] = base_features
         base_features = list(fm[v])
         add_features_without_duplicates(base_features, risingTone)
         fm[v + "̌"] = base_features
