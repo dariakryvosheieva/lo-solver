@@ -110,76 +110,6 @@ apinaye = [
 	),
 ]
 
-# UKLO 2013 Foundation P2
-zapotec = [
-	(
-		"nee",
-		[
-			({"root": "foot"}, "N", "none"),
-		],
-	),
-	(
-		"kaʒikebe",
-		[
-			({"root": "shoulder", "possessor": "his", "number": "pl"}, "N", "none"),
-		],
-	),
-	(
-		"neeluʔ",
-		[
-			({"root": "foot", "possessor": "your-sg"}, "N", "none"),
-		],
-	),
-	(
-		"kaʒigitu",
-		[
-			({"root": "chin", "possessor": "your-pl", "number": "pl"}, "N", "none"),
-		],
-	),
-	(
-		"ʒike",
-		[
-			({"root": "shoulder"}, "N", "none"),
-		],
-	),
-	(
-		"biʃoʒedu",
-		[
-			({"root": "father", "possessor": "our"}, "N", "none"),
-		],
-	),
-	(
-		"kaneebe",
-		[
-			({"root": "foot", "possessor": "his", "number": "pl"}, "N", "none"),
-		],
-	),
-	(
-		"kabiʃoʒedu",
-		[
-			({"root": "father", "possessor": "our", "number": "pl"}, "N", "none"),
-		],
-	),
-	(
-		"kaneetu",
-		[
-			({"root": "foot", "possessor": "your-pl", "number": "pl"}, "N", "none"),
-		],
-	),
-	(
-		"biʃoʒeluʔ",
-		[
-			({"root": "father", "possessor": "your-sg"}, "N", "none"),
-		],
-	),
-	(
-		"kaʒiketu",
-		[
-			({"root": "shoulder", "possessor": "your-pl", "number": "pl"}, "N", "none"),
-		],
-	),
-]
-
 # UKLO 2016 Advanced P5
 nung = [
 	(
@@ -328,6 +258,167 @@ nung = [
 	),
 ]
 
+# UKLO 2016 Intermediate P2
+amele = [
+	(
+		"Naus ho uten.",
+		[
+			({"root": "Naus"}, "N", "S"),
+			({"root": "give", "subject": "he", "indirect object": "him"}, "V", "V"),
+			({"root": "pig"}, "N", "DO"),
+		]
+	),
+	(
+		"Ija dana-leis jo ihacaliga.",
+		[
+			({"root": "I"}, "PRN", "S"),
+			({"root": "show", "subject": "I", "indirect object": "them-du"}, "V", "V"),
+			({"root": "two men"}, "N", "IO"),
+			({"root": "house"}, "N", "DO"),
+		]
+	),
+	(
+		"Uqa sab jen.",
+		[
+			({"root": "he"}, "PRN", "S"),
+			({"root": "eat", "subject": "he"}, "V", "V"),
+			({"root": "food"}, "N", "DO"),
+		]
+	),
+	(
+		"Ele sab jowa.",
+		[
+			({"root": "we-du"}, "PRN", "S"),
+			({"root": "eat", "subject": "we-du"}, "V", "V"),
+			({"root": "food"}, "N", "DO"),
+		]
+	),
+	(
+		"Ija sab qetaliga.",
+		[
+			({"root": "I"}, "PRN", "S"),
+			({"root": "cut", "subject": "I", "indirect object": "them-du"}, "V", "V"),
+			({"root": "food"}, "N", "DO"),
+		]
+	),
+	(
+		"Uqa bagol iten.",
+		[
+			({"root": "he"}, "PRN", "S"),
+			({"root": "give", "subject": "he", "indirect object": "me"}, "V", "V"),
+			({"root": "present"}, "N", "DO"),
+		]
+	),
+	(
+		"Ija sab utiga.",
+		[
+			({"root": "I"}, "PRN", "S"),
+			({"root": "give", "subject": "I", "indirect object": "him"}, "V", "V"),
+			({"root": "food"}, "N", "DO"),
+		]
+	),
+	(
+		"Uqa jo ihacuten.",
+		[
+			({"root": "he"}, "PRN", "S"),
+			({"root": "show", "subject": "he", "indirect object": "him"}, "V", "V"),
+			({"root": "house"}, "N", "DO"),
+		]
+	),
+	(
+		"Ele ho adowa.",
+		[
+			({"root": "we-du"}, "PRN", "S"),
+			({"root": "give", "subject": "we-du", "indirect object": "you-du"}, "V", "V"),
+			({"root": "pig"}, "N", "DO"),
+		]
+	),
+	(
+		"Jo ihacitaga.",
+		[
+			({"root": "show", "subject": "IMP", "indirect object": "me"}, "V", "V"),
+			({"root": "house"}, "N", "DO"),
+		]
+	),
+	(
+		"Sab qetalaga.",
+		[
+			({"root": "cut", "subject": "IMP", "indirect object": "them-du"}, "V", "V"),
+			({"root": "food"}, "N", "DO"),
+		]
+	),
+]
+
+# UKLO 2013 Foundation P2
+zapotec = [
+	(
+		"nee",
+		[
+			({"root": "foot"}, "N", "none"),
+		],
+	),
+	(
+		"kaʒikebe",
+		[
+			({"root": "shoulder", "possessor": "his", "number": "pl"}, "N", "none"),
+		],
+	),
+	(
+		"neeluʔ",
+		[
+			({"root": "foot", "possessor": "your-sg"}, "N", "none"),
+		],
+	),
+	(
+		"kaʒigitu",
+		[
+			({"root": "chin", "possessor": "your-pl", "number": "pl"}, "N", "none"),
+		],
+	),
+	(
+		"ʒike",
+		[
+			({"root": "shoulder"}, "N", "none"),
+		],
+	),
+	(
+		"biʃoʒedu",
+		[
+			({"root": "father", "possessor": "our"}, "N", "none"),
+		],
+	),
+	(
+		"kaneebe",
+		[
+			({"root": "foot", "possessor": "his", "number": "pl"}, "N", "none"),
+		],
+	),
+	(
+		"kabiʃoʒedu",
+		[
+			({"root": "father", "possessor": "our", "number": "pl"}, "N", "none"),
+		],
+	),
+	(
+		"kaneetu",
+		[
+			({"root": "foot", "possessor": "your-pl", "number": "pl"}, "N", "none"),
+		],
+	),
+	(
+		"biʃoʒeluʔ",
+		[
+			({"root": "father", "possessor": "your-sg"}, "N", "none"),
+		],
+	),
+	(
+		"kaʒiketu",
+		[
+			({"root": "shoulder", "possessor": "your-pl", "number": "pl"}, "N", "none"),
+		],
+	),
+]
+
 # UKLO 2022 Advanced P3
 zuni = [
 	(
@@ -424,6 +515,7 @@ zuni = [
 if __name__ == "__main__":
 	solve(mizo, type="rosetta")
 	solve(apinaye, type="rosetta")
-	solve(zapotec, type="rosetta")
 	solve(nung, type="rosetta")
+	solve(amele, type="rosetta")
+	solve(zapotec, type="rosetta")
 	solve(zuni, type="rosetta")
