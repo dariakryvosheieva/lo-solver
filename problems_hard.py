@@ -255,107 +255,107 @@ tamil = [
 zoque = [
 	(
 		"mis nakpatpit",
-		[({"root": "you"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "cactus", "case": "with"}, "N", "none")],
+		[({"root": "you"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "cactus", "case": "with"}, "N", "N")],
 	),
 	(
 		"nakpat",
-		[({"root": "cactus"}, "N", "none")],
+		[({"root": "cactus"}, "N", "N")],
 	),
 	(
 		"mokpittih",
-		[({"root": "corn", "case": "with", "only": "only"}, "N", "none")],
+		[({"root": "corn", "case": "with", "only": "only"}, "N", "N")],
 	),
 	(
 		"pokskukyʌsmʌtaʔm",
-		[({"root": "chair", "case": "above", "number": "pl"}, "N", "none")],
+		[({"root": "chair", "case": "above", "number": "pl"}, "N", "N")],
 	),
 	(
 		"pokskuy",
-		[({"root": "chair"}, "N", "none")],
+		[({"root": "chair"}, "N", "N")],
 	),
 	(
 		"peroltih",
-		[({"root": "kettle", "only": "only"}, "N", "none")],
+		[({"root": "kettle", "only": "only"}, "N", "N")],
 	),
 	(
 		"kot^sʌktaʔm",
-		[({"root": "mountain", "number": "pl"}, "N", "none")],
+		[({"root": "mountain", "number": "pl"}, "N", "N")],
 	),
 	(
 		"komgʌsmʌtih",
-		[({"root": "post", "case": "above", "only": "only"}, "N", "none")],
+		[({"root": "post", "case": "above", "only": "only"}, "N", "N")],
 	),
 	(
 		"ʔʌs ŋgom",
-		[({"root": "I"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "post"}, "N", "none")],
+		[({"root": "I"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "post"}, "N", "N")],
 	),
 	(
 		"kʌmʌŋbitšeh",
-		[({"root": "shadow", "case": "with", "like": "like"}, "N", "none")],
+		[({"root": "shadow", "case": "with", "like": "like"}, "N", "N")],
 	),
 	(
 		"kʌmʌŋdaʔm",
-		[({"root": "shadow", "number": "pl"}, "N", "none")],
+		[({"root": "shadow", "number": "pl"}, "N", "N")],
 	),
 	(
 		"ʔʌs nd^zapkʌsmʌšeh",
-		[({"root": "I"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "sky", "case": "above", "like": "like"}, "N", "none")],
+		[({"root": "I"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "sky", "case": "above", "like": "like"}, "N", "N")],
 	),
 	(
 		"t^sapšeh",
-		[({"root": "sky", "like": "like"}, "N", "none")],
+		[({"root": "sky", "like": "like"}, "N", "N")],
 	),
 	(
 		"pahsungotoya",
-		[({"root": "squash", "case": "for"}, "N", "none")],
+		[({"root": "squash", "case": "for"}, "N", "N")],
 	),
 	(
 		"pahsunšehtaʔmdih",
-		[({"root": "squash", "like": "like", "number": "pl", "only": "only"}, "N", "none")],
+		[({"root": "squash", "like": "like", "number": "pl", "only": "only"}, "N", "N")],
 	),
 	(
 		"tʌt^skotoyatih",
-		[({"root": "tooth", "case": "for", "only": "only"}, "N", "none")],
+		[({"root": "tooth", "case": "for", "only": "only"}, "N", "N")],
 	),
 	(
 		"kumgukyʌsmʌ",
-		[({"root": "town", "case": "above"}, "N", "none")],
+		[({"root": "town", "case": "above"}, "N", "N")],
 	),
 	(
 		"kumgukyotoyataʔm",
-		[({"root": "town", "case": "for", "number": "pl"}, "N", "none")],
+		[({"root": "town", "case": "for", "number": "pl"}, "N", "N")],
 	),
 	(
 		"t^sakyotoya",
-		[({"root": "vine", "case": "for"}, "N", "none")],
+		[({"root": "vine", "case": "for"}, "N", "N")],
 	),
 	(
 		"mis nd^zay",
-		[({"root": "you"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "vine"}, "N", "none")],
+		[({"root": "you"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "vine"}, "N", "N")],
 	),
 	(
 		"t^sakyʌsmʌtih",
-		[({"root": "vine", "case": "above", "only": "only"}, "N", "none")],
+		[({"root": "vine", "case": "above", "only": "only"}, "N", "N")],
 	),
 	(
 		"kʌmʌŋšeh",
-		[({"root": "shadow", "like": "like"}, "N", "none")],
+		[({"root": "shadow", "like": "like"}, "N", "N")],
 	),
 	(
 		"ʔʌs mok",
-		[({"root": "I"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "corn"}, "N", "none")],
+		[({"root": "I"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "corn"}, "N", "N")],
 	),
 	(
 		"mis ndʌt^staʔm",
-		[({"root": "you"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "tooth", "number": "pl"}, "N", "none")],
+		[({"root": "you"}, "PRN", "Poss"), ({"possessive": "possessive", "root": "tooth", "number": "pl"}, "N", "N")],
 	),
 	(
 		"pahsunbit",
-		[({"root": "squash", "case": "with"}, "N", "none")],
+		[({"root": "squash", "case": "with"}, "N", "N")],
 	),
 	(
 		"perolkotoyašehtaʔm",
-		[({"root": "kettle", "case": "for", "like": "like", "number": "pl"}, "N", "none")],
+		[({"root": "kettle", "case": "for", "like": "like", "number": "pl"}, "N", "N")],
 	),
 ]
 
