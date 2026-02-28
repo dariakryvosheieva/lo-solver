@@ -5,6 +5,12 @@ Building upon my final project for Prof. Solar-Lezama's [program synthesis](http
 
 This work has been influenced by the paper *[Synthesizing theories of human language with Bayesian program induction](https://www.nature.com/articles/s41467-022-32012-w)* (*Nature*, 2022); many features are borrowed directly from the associated [codebase](https://github.com/ellisk42/bpl_phonology).
 
+## News
+
+**2026-02-28:** Added support for *scrambled Rosetta* problems (i.e., Rosetta where translations are given in arbitrary order and need to be matched up with the right sentences).
+
+**2026-02-08:** First release!
+
 ## Setup
 
 The solver does not use any third-party Python libraries.
@@ -20,6 +26,8 @@ python problems_easy.py
 ```
 
 ## Problem Input Format
+
+### Rosetta
 
 The input is a list of `(sentence, translation)` tuples where:
 * `sentence`: raw string in Problemese (= target language)
@@ -157,7 +165,103 @@ solve(fur, type="rosetta")
 
 </details>
 
-See `problems_easy.py` and `problems_hard.py` for more examples.
+### Scrambled Rosetta
+
+The input is a 2-tuple of the form `(list_of_sentences, list_of_translations)`, where sentences and translations are defined as above.
+
+<details>
+<summary>Example (click to expand)</summary>
+
+```python
+from solver import solve
+
+beja = (
+	[
+		"Tak rihan",
+		"Yaas rihan",
+		"Akra tak rihan",
+		"Dabalo yaas rihan",
+		"Tak akraab rihan",
+		"Tak dabaloob rihan",
+		"Tak akteen",
+		"Rihane tak akteen",
+		"Tak rihaneeb akteen",
+	],
+	[
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "strong-REL"}, "REL", "REL"),
+		],
+		[
+			({"root": "know"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "seen-REL"}, "REL", "REL"),
+		],
+		[
+			({"root": "know"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "seen-ADJ"}, "ADJ", "ADJ"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "small-REL"}, "REL", "REL"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "dog"}, "N", "O"),
+			({"root": "small-ADJ"}, "ADJ", "ADJ"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "strong-ADJ"}, "ADJ", "ADJ"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "dog"}, "N", "O"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+		],
+		[
+			({"root": "know"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+		],
+	],
+)
+
+solve(beja, type="scrambled_rosetta")
+
+# Output:
+# Correspondences:
+#   (1. H)
+#   (2. G)
+#   (3. F)
+#   (4. E)
+#   (5. A)
+#   (6. D)
+#   (7. I)
+#   (8. C)
+#   (9. B)
+# Word order: ADJ - O - REL - V
+# Vocabulary:
+#   (akra, strong-ADJ)
+#   (akraab, strong-REL)
+#   (akteen, know)
+#   (dabalo, small-ADJ)
+#   (dabaloob, small-REL)
+#   (rihan, see)
+#   (rihane, seen-ADJ)
+#   (rihaneeb, seen-REL)
+#   (tak, man)
+#   (yaas, dog)
+# Time taken: 0.01 s
+```
+
+</details>
 
 ## Technical Details
 
@@ -181,6 +285,8 @@ The following algorithm is applied to each problem:
         2. For each plausible segmentation, find a minimal set of phonological rules that explains all differences in morpheme variants. As soon as such a set is found, go to step 3.
 3. Aggregate phonological rules across parts of speech and return the final output.
 
+For scrambled Rosetta problems, we additionally determine the correspondences between sentences and translations jointly with step 1.
+
 ## Limitations
 
 ### Fundamental
@@ -190,7 +296,7 @@ The following algorithm is applied to each problem:
 
 ### Future Work
 
-* Currently, only Rosetta Stone problems are supported. In the near future, I plan to add support for counting/numeral systems and semantic matching (insofar as an algorithm can capture the complexity of semantic compounding).
+* In the near future, I plan to add problems on counting/numeral systems.
 * Other features I still need to implement: syntactic constituents, vowel harmony, ejectives, word boundary guards.
 
 ## Intended Use

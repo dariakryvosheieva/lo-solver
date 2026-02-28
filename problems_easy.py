@@ -1,6 +1,8 @@
 from solver import solve
 
 
+### ROSETTA ###
+
 # Ukraine LO 2023/24, qualification round, middle school division, P1
 mizo = [
 	(
@@ -512,6 +514,68 @@ zuni = [
 ]
 
 
+### SCRAMBLED ROSETTA ###
+
+# NACLO 2018 R2, problem P
+beja = (
+	[
+		"Tak rihan",
+		"Yaas rihan",
+		"Akra tak rihan",
+		"Dabalo yaas rihan",
+		"Tak akraab rihan",
+		"Tak dabaloob rihan",
+		"Tak akteen",
+		"Rihane tak akteen",
+		"Tak rihaneeb akteen",
+	],
+	[
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "strong-REL"}, "REL", "REL"),
+		],
+		[
+			({"root": "know"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "seen-REL"}, "REL", "REL"),
+		],
+		[
+			({"root": "know"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "seen-ADJ"}, "ADJ", "ADJ"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "small-REL"}, "REL", "REL"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "dog"}, "N", "O"),
+			({"root": "small-ADJ"}, "ADJ", "ADJ"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+			({"root": "strong-ADJ"}, "ADJ", "ADJ"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "dog"}, "N", "O"),
+		],
+		[
+			({"root": "see"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+		],
+		[
+			({"root": "know"}, "V", "V"),
+			({"root": "man"}, "N", "O"),
+		],
+	],
+)
+
+
 if __name__ == "__main__":
 	solve(mizo, type="rosetta")
 	solve(apinaye, type="rosetta")
@@ -519,3 +583,4 @@ if __name__ == "__main__":
 	solve(amele, type="rosetta")
 	solve(zapotec, type="rosetta")
 	solve(zuni, type="rosetta")
+	solve(beja, type="scrambled_rosetta")
