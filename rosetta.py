@@ -269,7 +269,7 @@ def _solve_word_order_and_lexicon(sentences, translations, roles, scrambled, sen
 	return solve_sentence(0)
 
 
-def solve_rosetta(pairs, scrambled=False):
+def solve_rosetta(pairs, scrambled=False, debug=False):
 	"""
 	Solve a 'Rosetta Stone' problem.
 
@@ -385,7 +385,7 @@ def solve_rosetta(pairs, scrambled=False):
 			segmentation_queue_limit=100000,
 			segmentation_queue_trim_factor=1.5,
 			initial_lexicon_max_states=float("inf"),
-			debug=False,
+			debug=debug,
 		).solve()
 		if res is None:
 			print(f"Morpheme search failed for POS {pos}")
@@ -403,15 +403,23 @@ def solve_rosetta(pairs, scrambled=False):
 	return ret
 
 
-def format_solution_rosetta(problem, scrambled=False):
+def format_solution_rosetta(problem, scrambled=False, debug=False):
 	start_time = time.time()
 	if scrambled:
-		correspondences, word_order, morpheme_orders, lexicon, global_rules, local_rules = solve_rosetta(problem, scrambled=True)
+		correspondences, word_order, morpheme_orders, lexicon, global_rules, local_rules = solve_rosetta(
+			problem,
+			scrambled=True,
+			debug=debug
+		)
 		print("Correspondences:")
 		for i, c in enumerate(correspondences):
 			print(f"  ({i + 1}. {chr(65 + c)})")
 	else:
-		word_order, morpheme_orders, lexicon, global_rules, local_rules = solve_rosetta(problem, scrambled=False)
+		word_order, morpheme_orders, lexicon, global_rules, local_rules = solve_rosetta(
+			problem,
+			scrambled=False,
+			debug=debug
+		)
 	if len(word_order) > 1:
 		print("Word order:", " - ".join(r for r in word_order))
 	for pos in morpheme_orders.keys():
