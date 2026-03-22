@@ -7,7 +7,7 @@ This work has been influenced by the paper *[Synthesizing theories of human lang
 
 ## News
 
-**2026-02-28:** Added support for *scrambled Rosetta* problems (i.e., Rosetta where translations are given in arbitrary order and need to be matched up with the right sentences).
+**2026-03-22:** Added support for *scrambled Rosetta* problems (i.e., Rosetta where translations are given in arbitrary order and need to be matched up with the right sentences).
 
 **2026-02-08:** First release!
 
@@ -273,6 +273,8 @@ Most problems run faster than the time it would take a human expert to solve the
 
 The following algorithm is applied to each problem:
 
+#### Rosetta
+
 1. Determine the word order and the English-to-Problemese word mappings.
 2. For each part of speech:
 
@@ -285,7 +287,11 @@ The following algorithm is applied to each problem:
         2. For each plausible segmentation, find a minimal set of phonological rules that explains all differences in morpheme variants. As soon as such a set is found, go to step 3.
 3. Aggregate phonological rules across parts of speech and return the final output.
 
-For scrambled Rosetta problems, we additionally determine the correspondences between sentences and translations jointly with step 1.
+#### Scrambled Rosetta
+
+1. Find the most plausible assignments of sentences to translations (and sort them by plausibility).
+
+2. For each candidate assignment, run the regular Rosetta algorithm. As soon as the algorithm succeeds, return the assignment and the algorithm's solution.
 
 ## Limitations
 

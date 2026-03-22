@@ -20,7 +20,7 @@ Vocabulary:
 Rules:
 1 2⟶MET / [ +glide ] _ 
 1 2⟶MET / k _ 
-Time taken: 878.67 s
+Time taken: 881.59 s
 Morpheme order (N): root - number - possessor - case
 Vocabulary:
   (cerku, house)
@@ -47,7 +47,7 @@ Vocabulary:
 Rules:
 (number, pl): [ -bilabial ]⟶Ø / [ +tense ] + _ 
 (number, pl): [ -tense ]⟶-1 / + _ 
-Time taken: 420.60 s
+Time taken: 411.95 s
 Morpheme order (V): root - tense - subject
 Vocabulary:
   (aarambi, begin)
@@ -64,7 +64,7 @@ Vocabulary:
   (pp, FUT)
   (tt, PST)
   (y, NEG)
-Time taken: 2277.46 s
+Time taken: 2238.00 s
 Word order: Poss - N
 Morpheme order (N): possessive - root - case - like - number - only
 Vocabulary:
@@ -94,4 +94,36 @@ Rules:
 [ -low ]⟶[ +voice ] / [ +nasal ] _ 
 y k⟶MET / _ 
 left neighbor of (root, post): [ +alveolar ]⟶ŋ / _ +
-Time taken: 1461.37 s
+Time taken: 1427.33 s
+Correspondences:
+  (1. D)
+  (2. F)
+  (3. A)
+  (4. I)
+  (5. B)
+  (6. H)
+  (7. E)
+  (8. G)
+  (9. C)
+Word order: S - V
+Morpheme order (PRN): root - number
+Morpheme order (V): root - RECP - all - want - aspect - tense
+Vocabulary:
+  (ā, 3)
+  (ei, PST)
+  (hāira, PFV)
+  (i, 1)
+  (lā, Q (PRS))
+  (masik, pinch)
+  (na, 2)
+  (ngarok, RECP)
+  (ngāi, want)
+  (ni, du)
+  (ra, FUT)
+  (rā, come)
+  (ser, all)
+  (thāi, see)
+  (thum, pl)
+Rules:
+left neighbor of (number, sg): [ +voice ]⟶[ -long ] / _ +
+Time taken: 195.42 s

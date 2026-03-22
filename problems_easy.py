@@ -575,6 +575,42 @@ beja = (
 	],
 )
 
+# UKLO 2014 R2 P1
+swahili = [
+	[
+		"Alikula",
+		"Atacheza",
+		"Mlifahamu",
+		"Mnapika",
+		"Nilicheza",
+		"Ninakula",
+		"Ninapika",
+		"Nitapika",
+		"Tulifahamu",
+		"Unacheza",
+		"Utapika",
+		"Wanafahamu",
+		"Watapika",
+		"Walicheza",
+	],
+	[
+		[({"root": "eat", "subject": "he/she", "tense": "PST"}, "V", "V")],
+		[({"root": "play", "subject": "he/she", "tense": "FUT"}, "V", "V")],
+		[({"root": "eat", "subject": "I", "tense": "PRS"}, "V", "V")],
+		[({"root": "play", "subject": "I", "tense": "PST"}, "V", "V")],
+		[({"root": "cook", "subject": "I", "tense": "PRS"}, "V", "V")],
+		[({"root": "cook", "subject": "I", "tense": "FUT"}, "V", "V")],
+		[({"root": "understand", "subject": "they", "tense": "PRS"}, "V", "V")],
+		[({"root": "cook", "subject": "they", "tense": "FUT"}, "V", "V")],
+		[({"root": "play", "subject": "they", "tense": "PST"}, "V", "V")],
+		[({"root": "understand", "subject": "we", "tense": "PST"}, "V", "V")],
+		[({"root": "understand", "subject": "you-pl", "tense": "PST"}, "V", "V")],
+		[({"root": "cook", "subject": "you-pl", "tense": "PRS"}, "V", "V")],
+		[({"root": "play", "subject": "you-sg", "tense": "PRS"}, "V", "V")],
+		[({"root": "cook", "subject": "you-sg", "tense": "FUT"}, "V", "V")],
+	],
+]
+
 
 if __name__ == "__main__":
 	solve(mizo, type="rosetta")
@@ -584,3 +620,4 @@ if __name__ == "__main__":
 	solve(zapotec, type="rosetta")
 	solve(zuni, type="rosetta")
 	solve(beja, type="scrambled_rosetta")
+	solve(swahili, type="scrambled_rosetta")

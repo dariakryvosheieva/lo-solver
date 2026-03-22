@@ -1,6 +1,8 @@
 from solver import solve
 
 
+### ROSETTA ###
+
 # UKLO 2025 Foundation P1
 fur = [
 	(
@@ -360,8 +362,64 @@ zoque = [
 ]
 
 
+### SCRAMBLED ROSETTA ###
+
+# NACLO 2010 R1, problem G
+tangkhul = [
+	[
+		"a masikserra",
+		"āni masikngarokei",
+		"āthum masikngarokngāilā",
+		"ini thāingarokei",
+		"na thāilā",
+		"ithum thāingāihāirara",
+		"rāserhāira",
+		"āni rāra",
+		"nathum rāserhāiralā",
+	],
+	[
+		[
+			({"root": "3", "number": "pl"}, "PRN", "S"),
+			({"root": "pinch", "tense": "Q (PRS)", "want": "want", "RECP": "RECP"}, "V", "V"),
+		],
+		[
+			({"root": "2", "number": "sg"}, "PRN", "S"),
+			({"root": "see", "tense": "Q (PRS)"}, "V", "V"),
+		],
+		[
+			({"root": "2", "number": "pl"}, "PRN", "S"),
+			({"root": "come", "tense": "Q (PRS)", "aspect": "PFV", "all": "all"}, "V", "V"),
+		],
+		[
+			({"root": "3", "number": "sg"}, "PRN", "S"),
+			({"root": "pinch", "tense": "FUT", "all": "all"}, "V", "V"),
+		],
+		[
+			({"root": "come", "aspect": "PFV", "all": "all"}, "V", "V"),
+		],
+		[
+			({"root": "3", "number": "du"}, "PRN", "S"),
+			({"root": "pinch", "tense": "PST", "RECP": "RECP"}, "V", "V"),
+		],
+		[
+			({"root": "3", "number": "du"}, "PRN", "S"),
+			({"root": "come", "tense": "FUT"}, "V", "V"),
+		],
+		[
+			({"root": "1", "number": "pl"}, "PRN", "S"),
+			({"root": "see", "tense": "FUT", "aspect": "PFV", "want": "want"}, "V", "V"),
+		],
+		[
+			({"root": "1", "number": "du"}, "PRN", "S"),
+			({"root": "see", "tense": "PST", "RECP": "RECP"}, "V", "V"),
+		],
+	],
+]
+
+
 if __name__ == "__main__":
 	solve(fur, type="rosetta")
 	solve(permyak, type="rosetta")
 	solve(tamil, type="rosetta")
 	solve(zoque, type="rosetta")
+	solve(tangkhul, type="scrambled_rosetta")
