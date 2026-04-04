@@ -351,72 +351,222 @@ amele = [
 	),
 ]
 
+# TOL 2026 R1 P1
+arrernte = [
+	(
+		"aherre apetyeme",
+		[
+			({"root": "kangaroo"}, "N", "S"),
+			({"root": "come", "tense": "PRS"}, "V", "V"),
+		],
+	),
+	(
+		"aherrele arlewatyerre atweke",
+		[
+			({"root": "kangaroo", "case": "ERG"}, "N", "S"),
+			({"root": "hit", "tense": "PST"}, "V", "V"),
+			({"root": "goanna"}, "N", "O"),
+		],
+	),
+	(
+		"akngwelyele arleye aretyenhe",
+		[
+			({"root": "dog", "case": "ERG"}, "N", "S"),
+			({"root": "look", "tense": "FUT"}, "V", "V"),
+			({"root": "emu"}, "N", "O"),
+		],
+	),
+	(
+		"ampele intelyapelyape areke",
+		[
+			({"root": "child", "case": "ERG"}, "N", "S"),
+			({"root": "look", "tense": "PST"}, "V", "V"),
+			({"root": "butterfly"}, "N", "O"),
+		],
+	),
+	(
+		"arleye alkereke-ireme",
+		[
+			({"root": "emu"}, "N", "S"),
+			({"root": "fly", "tense": "PRS"}, "V", "V"),
+		],
+	),
+	(
+		"artwele ampe akaltyele-anteme",
+		[
+			({"root": "man", "case": "ERG"}, "N", "S"),
+			({"root": "teach", "tense": "PRS"}, "V", "V"),
+			({"root": "child"}, "N", "O"),
+		],
+	),
+	(
+		"marle apetyetyenhe",
+		[
+			({"root": "girl"}, "N", "S"),
+			({"root": "come", "tense": "FUT"}, "V", "V"),
+		],
+	),
+	(
+		"irretye alkereke-ireke",
+		[
+			({"root": "wedge-tailed eagle"}, "N", "S"),
+			({"root": "fly", "tense": "PST"}, "V", "V"),
+		],
+	),
+]
+
 # UKLO 2013 Foundation P2
 zapotec = [
 	(
 		"nee",
-		[
-			({"root": "foot"}, "N", "none"),
-		],
+		[({"root": "foot"}, "N", "none")],
 	),
 	(
 		"kaʒikebe",
-		[
-			({"root": "shoulder", "possessor": "his", "number": "pl"}, "N", "none"),
-		],
+		[({"root": "shoulder", "possessor": "his", "number": "pl"}, "N", "none")],
 	),
 	(
 		"neeluʔ",
-		[
-			({"root": "foot", "possessor": "your-sg"}, "N", "none"),
-		],
+		[({"root": "foot", "possessor": "your-sg"}, "N", "none")],
 	),
 	(
 		"kaʒigitu",
-		[
-			({"root": "chin", "possessor": "your-pl", "number": "pl"}, "N", "none"),
-		],
+		[({"root": "chin", "possessor": "your-pl", "number": "pl"}, "N", "none")],
 	),
 	(
 		"ʒike",
-		[
-			({"root": "shoulder"}, "N", "none"),
-		],
+		[({"root": "shoulder"}, "N", "none")],
 	),
 	(
 		"biʃoʒedu",
-		[
-			({"root": "father", "possessor": "our"}, "N", "none"),
-		],
+		[({"root": "father", "possessor": "our"}, "N", "none")],
 	),
 	(
 		"kaneebe",
-		[
-			({"root": "foot", "possessor": "his", "number": "pl"}, "N", "none"),
-		],
+		[({"root": "foot", "possessor": "his", "number": "pl"}, "N", "none")],
 	),
 	(
 		"kabiʃoʒedu",
-		[
-			({"root": "father", "possessor": "our", "number": "pl"}, "N", "none"),
-		],
+		[({"root": "father", "possessor": "our", "number": "pl"}, "N", "none")],
 	),
 	(
 		"kaneetu",
-		[
-			({"root": "foot", "possessor": "your-pl", "number": "pl"}, "N", "none"),
-		],
+		[({"root": "foot", "possessor": "your-pl", "number": "pl"}, "N", "none")],
 	),
 	(
 		"biʃoʒeluʔ",
-		[
-			({"root": "father", "possessor": "your-sg"}, "N", "none"),
-		],
+		[({"root": "father", "possessor": "your-sg"}, "N", "none")],
 	),
 	(
 		"kaʒiketu",
+		[({"root": "shoulder", "possessor": "your-pl", "number": "pl"}, "N", "none")],
+	),
+]
+
+# PLO 2019 R1 P7
+kove = [
+	(
+		"yau ngaoli vula pa tuanga",
 		[
-			({"root": "shoulder", "possessor": "your-pl", "number": "pl"}, "N", "none"),
+			({"root": "I (S)"}, "PRN", "S"),
+			({"root": "buy", "S": "I"}, "V", "V"),
+			({"root": "shell necklace"}, "N", "DO"),
+			({"root": "PRP"}, "PRP", "PRP"),
+			({"root": "village"}, "N", "LOC"),
+		],
+	),
+	(
+		"veao ukonaghau",
+		[
+			({"root": "you (S)"}, "PRN", "S"),
+			({"root": "see", "S": "you", "DO": "me"}, "V", "V"),
+		],
+	),
+	(
+		"Neti ikonari vula noha",
+		[
+			({"root": "Neti"}, "N", "S"),
+			({"root": "see", "S": "he/she", "DO": "them"}, "V", "V"),
+			({"root": "shell necklace"}, "N", "DO"),
+			({"root": "yesterday"}, "N", "TEMP"),
+		],
+	),
+	(
+		"Neti ipasolani tuanga pari kekele",
+		[
+			({"root": "Neti"}, "N", "S"),
+			({"root": "show", "S": "he/she"}, "V", "V"),
+			({"root": "PRP-PL"}, "PRP", "PRP"),
+			({"root": "child"}, "N", "IO"),
+			({"root": "village"}, "N", "DO"),
+		],
+	),
+	(
+		"yau ngaaniri niu pa tuanga",
+		[
+			({"root": "I (S)"}, "PRN", "S"),
+			({"root": "eat", "S": "I", "DO": "them"}, "V", "V"),
+			({"root": "coconut"}, "N", "DO"),
+			({"root": "PRP"}, "PRP", "PRP"),
+			({"root": "village"}, "N", "LOC"),
+		],
+	),
+	(
+		"tamone tipasolaniri vula pa ghau",
+		[
+			({"root": "man"}, "N", "S"),
+			({"root": "show", "S": "they", "DO": "them"}, "V", "V"),
+			({"root": "PRP"}, "PRP", "PRP"),
+			({"root": "I (IO)"}, "PRN", "IO"),
+			({"root": "shell necklace"}, "N", "DO"),
+		],
+	),
+	(
+		"veao upasolani niu pari kaua",
+		[
+			({"root": "you (S)"}, "PRN", "S"),
+			({"root": "show", "S": "you"}, "V", "V"),
+			({"root": "PRP-PL"}, "PRP", "PRP"),
+			({"root": "dog"}, "N", "IO"),
+			({"root": "coconut"}, "N", "DO"),
+		],
+	),
+	(
+		"ghaya iani niu lima",
+		[
+			({"root": "pig"}, "N", "S"),
+			({"root": "eat", "S": "he/she"}, "V", "V"),
+			({"root": "five"}, "NUM", "NUM"),
+			({"root": "coconut"}, "N", "DO"),
+		],
+	),
+	(
+		"yau ngaoli kaua pari tamone",
+		[
+			({"root": "I (S)"}, "PRN", "S"),
+			({"root": "buy", "S": "I"}, "V", "V"),
+			({"root": "dog"}, "N", "DO"),
+			({"root": "PRP-PL"}, "PRP", "PRP"),
+			({"root": "man"}, "N", "IO"),
+		],
+	),
+	(
+		"tamone tikona vula tolu",
+		[
+			({"root": "man"}, "N", "S"),
+			({"root": "see", "S": "they"}, "V", "V"),
+			({"root": "three"}, "NUM", "NUM"),
+			({"root": "shell necklace"}, "N", "DO"),
+		],
+	),
+	(
+		"veai ikonari tamone pa tuanga",
+		[
+			({"root": "he/she (S)"}, "PRN", "S"),
+			({"root": "see", "S": "he/she", "DO": "them"}, "V", "V"),
+			({"root": "man"}, "N", "DO"),
+			({"root": "PRP"}, "PRP", "PRP"),
+			({"root": "village"}, "N", "LOC"),
 		],
 	),
 ]
@@ -616,8 +766,10 @@ if __name__ == "__main__":
 	solve(mizo, type="rosetta")
 	solve(apinaye, type="rosetta")
 	solve(nung, type="rosetta")
+	solve(arrernte, type="rosetta")
 	solve(amele, type="rosetta")
 	solve(zapotec, type="rosetta")
+	solve(kove, type="rosetta")
 	solve(zuni, type="rosetta")
 	solve(beja, type="scrambled_rosetta")
 	solve(swahili, type="scrambled_rosetta")
