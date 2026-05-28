@@ -544,16 +544,23 @@ class FeatureBank:
     mutuallyExclusiveClasses = []  # ["stop","fricative","affricate"]]
 
     def __init__(self, words):
-        self.phonemes = list(
-            {
-                p
-                for w in words
-                for p in (tokenize(w) if isinstance(w, str) else w.phonemes)
-            }
-        )
-        self.features = list({f for p in self.phonemes for f in featureMap[p]})
+        self.phonemes = []
+        seen_phonemes = set()
+        for w in words:
+            for p in tokenize(w) if isinstance(w, str) else w.phonemes:
+                if p not in seen_phonemes:
+                    seen_phonemes.add(p)
+                    self.phonemes.append(p)
+
+        self.features = []
+        seen_features = set()
+        for p in self.phonemes:
+            for f in featureMap[p]:
+                if f not in seen_features:
+                    seen_features.add(f)
+                    self.features.append(f)
         self.featureMap = {
-            p: list(set(featureMap[p]) & set(self.features)) for p in self.phonemes
+            p: [f for f in featureMap[p] if f in seen_features] for p in self.phonemes
         }
         self.featureVectorMap = {
             p: [(f in self.featureMap[p]) for f in self.features] for p in self.phonemes

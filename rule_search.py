@@ -1178,7 +1178,8 @@ class RuleSolver:
 
         # Generate all left-right pairs jointly supported by >=1 observation;
         # maintain global frequency stats over such pairs
-        pairs = set()
+        pairs = []
+        seen_pairs = set()
 
         left_guards = defaultdict(int)
         right_guards = defaultdict(int)
@@ -1322,9 +1323,11 @@ class RuleSolver:
                         key_to_spec_left[lk].cost() + key_to_spec_right[rk].cost()
                         <= remaining_cost
                     ):
-                        pairs.add((lk, rk))
+                        pair = (lk, rk)
+                        if pair not in seen_pairs:
+                            seen_pairs.add(pair)
+                            pairs.append(pair)
 
-        pairs = list(pairs)
         pairs = sorted(
             pairs,
             key=lambda x: left_guards[x[0]] * right_guards[x[1]],
