@@ -442,7 +442,7 @@ for fm in [simpleFeatureMap, sophisticatedFeatureMap]:
         fm[v + "́"] = base_features
         base_features = list(fm[v])
         add_features_without_duplicates(base_features, lowTone)
-        fm[v + "`"] = base_features
+        fm[v + "̀"] = base_features
         base_features = list(fm[v])
         add_features_without_duplicates(base_features, middleTone)
         fm[v + "¯"] = base_features
@@ -510,6 +510,8 @@ def tokenize(word):
     word = word.replace("ɪ", "ɩ")
     # support a-umlaut in addition to u- and o-umlauts
     word = word.replace("ä", "æ")
+    # support IPA alternative for o-umlaut
+    word = word.replace("ø", "ö")
     # sh and zh
     word = word.replace("ʃ", "š")
     word = word.replace("ʒ", "ž")

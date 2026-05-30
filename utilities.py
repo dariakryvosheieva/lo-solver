@@ -1,10 +1,16 @@
-import heapq, os, random, sys, tempfile, re
+import heapq, os, random, sys, tempfile, re, unicodedata
 
 
 def _normalize(token):
 	"""Lowercase; remove leading/trailing whitespace and punctuation."""
 	t = token.strip().lower()
-	return re.sub(r"^[^\w]+|[^\w]+$", "", t, flags=re.UNICODE)
+	start = 0
+	end = len(t)
+	while start < end and unicodedata.category(t[start])[0] in {"P", "S"}:
+		start += 1
+	while end > start and unicodedata.category(t[end - 1])[0] in {"P", "S"}:
+		end -= 1
+	return t[start:end]
 
 
 def parse(sentence):
