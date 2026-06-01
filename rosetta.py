@@ -1,3 +1,4 @@
+import itertools
 import time
 from collections import defaultdict
 
@@ -529,6 +530,50 @@ def _solve_word_order_and_lexicon(
 			)
 
 		complete_candidates.sort(key=lambda x: x[0], reverse=True)
+		estimate_pool_size = min(len(complete_candidates), max(20, max_complete_candidates * 20))
+		if debug:
+			print(
+				f"ranking {estimate_pool_size}/{len(complete_candidates)} complete candidates "
+				"with segmentation-TFED estimate",
+				flush=True,
+			)
+
+		ranked_candidates = []
+		zero_tfed_candidate = None
+		for rank_i, candidate in enumerate(complete_candidates[:estimate_pool_size], start=1):
+			heuristic_score, _correspondences, _word_order, candidate_mapping, _assignments = candidate
+			if debug:
+				print(
+					f"estimating complete candidate {rank_i}/{estimate_pool_size}: "
+					f"heuristic_score={heuristic_score:.2f}",
+					flush=True,
+				)
+			estimated_tfed = _estimate_min_segmentation_tfed(translations, candidate_mapping)
+			ranked_candidates.append((estimated_tfed, -heuristic_score, candidate))
+			if debug:
+				print(
+					f"complete candidate: estimated_tfed={estimated_tfed:.2f}, "
+					f"heuristic_score={heuristic_score:.2f}",
+					flush=True,
+				)
+			if estimated_tfed == 0.0:
+				zero_tfed_candidate = candidate
+				if debug:
+					print(
+						"found zero estimated TFED; trying this complete candidate immediately",
+						flush=True,
+					)
+				break
+
+		if zero_tfed_candidate is not None:
+			complete_candidates = [zero_tfed_candidate]
+		else:
+			for candidate in complete_candidates[estimate_pool_size:]:
+				heuristic_score = candidate[0]
+				ranked_candidates.append((float("inf"), -heuristic_score, candidate))
+
+			ranked_candidates.sort(key=lambda x: (x[0], x[1]))
+			complete_candidates = [candidate for _, _, candidate in ranked_candidates]
 		complete_candidates = complete_candidates[:max_complete_candidates]
 		complete_candidates_collected = len(complete_candidates)
 
@@ -567,20 +612,12 @@ def _solve_word_order_and_lexicon(
 	return solve_sentence(0)
 
 
-def solve_morphemes_and_rules(translations, english_to_problemese, debug=False):
-	"""
-	Solve morphemes and phonological rules for a fixed alignment of English and Problemese words.
-	"""
+def _iter_pos_morpheme_inputs(translations, english_to_problemese):
 	bf_to_pos = defaultdict(set)
 	for t in translations:
 		for base, feats, pos, _ in t:
 			bf_to_pos[(base, feats)].add(pos)
 	all_pos = sorted({pos for t in translations for (_, _, pos, _) in t})
-
-	morpheme_orders = {}
-	lexicon_union = set()
-	global_rules_union = set()
-	local_rules_union = set()
 
 	for pos in all_pos:
 		english_words_pos = sorted({
@@ -604,6 +641,51 @@ def solve_morphemes_and_rules(translations, english_to_problemese, debug=False):
 				row.append(english_to_problemese.get((b, f, pos), None))
 			matrix_rows.append(tuple(row))
 
+		yield pos, matrix_rows, word_features
+
+
+def _estimate_min_segmentation_tfed(
+	translations,
+	english_to_problemese,
+):
+	"""Estimate correspondence quality with the same bounded TFED objective used for orders."""
+	total = 0.0
+	for _pos, matrix_rows, word_features in _iter_pos_morpheme_inputs(
+		translations, english_to_problemese
+	):
+		solver = MorphemeSolver(
+			matrix_rows,
+			word_features,
+			allow_empty_slots=True,
+			segmentations_beyond_minimal=0,
+			segmentation_queue_limit=100000,
+			segmentation_queue_trim_factor=1.5,
+			debug=False,
+		)
+		best_tfed = float("inf")
+		for order in itertools.permutations(solver.slots):
+			best_tfed = min(
+				best_tfed,
+				solver._estimate_order_segmentation_tfed(list(order)),
+			)
+			if best_tfed == 0.0:
+				break
+		total += best_tfed
+	return total
+
+
+def solve_morphemes_and_rules(translations, english_to_problemese, debug=False):
+	"""
+	Solve morphemes and phonological rules for a fixed alignment of English and Problemese words.
+	"""
+	morpheme_orders = {}
+	lexicon_union = set()
+	global_rules_union = set()
+	local_rules_union = set()
+
+	for pos, matrix_rows, word_features in _iter_pos_morpheme_inputs(
+		translations, english_to_problemese
+	):
 		res = MorphemeSolver(
 			matrix_rows,
 			word_features,

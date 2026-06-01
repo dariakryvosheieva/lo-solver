@@ -364,6 +364,42 @@ zoque = [
 
 ### SCRAMBLED ROSETTA ###
 
+# UKLO 2014 R2 P1
+swahili = [
+	[
+		"Alikula",
+		"Atacheza",
+		"Mlifahamu",
+		"Mnapika",
+		"Nilicheza",
+		"Ninakula",
+		"Ninapika",
+		"Nitapika",
+		"Tulifahamu",
+		"Unacheza",
+		"Utapika",
+		"Wanafahamu",
+		"Watapika",
+		"Walicheza",
+	],
+	[
+		[({"root": "eat", "subject": "he/she", "tense": "PST"}, "V", "V")],
+		[({"root": "play", "subject": "he/she", "tense": "FUT"}, "V", "V")],
+		[({"root": "eat", "subject": "I", "tense": "PRS"}, "V", "V")],
+		[({"root": "play", "subject": "I", "tense": "PST"}, "V", "V")],
+		[({"root": "cook", "subject": "I", "tense": "PRS"}, "V", "V")],
+		[({"root": "cook", "subject": "I", "tense": "FUT"}, "V", "V")],
+		[({"root": "understand", "subject": "they", "tense": "PRS"}, "V", "V")],
+		[({"root": "cook", "subject": "they", "tense": "FUT"}, "V", "V")],
+		[({"root": "play", "subject": "they", "tense": "PST"}, "V", "V")],
+		[({"root": "understand", "subject": "we", "tense": "PST"}, "V", "V")],
+		[({"root": "understand", "subject": "you-pl", "tense": "PST"}, "V", "V")],
+		[({"root": "cook", "subject": "you-pl", "tense": "PRS"}, "V", "V")],
+		[({"root": "play", "subject": "you-sg", "tense": "PRS"}, "V", "V")],
+		[({"root": "cook", "subject": "you-sg", "tense": "FUT"}, "V", "V")],
+	],
+]
+
 # NACLO 2010 R1, problem G
 tangkhul = [
 	[
@@ -417,9 +453,100 @@ tangkhul = [
 ]
 
 
+### SEMANTIC MATCHING ###
+
+# IOL 2017 P2
+abui = [
+	[
+		"abang",
+		"atáng heya",
+		"bataa hawata",
+		"dekafi",
+		"ebataa hatáng",
+		"ekuda hawata",
+		"falepak hawei",
+		"hatáng hamin",
+		"helui",
+		"maama hefalepak",
+		"napong",
+		"rièng",
+		"ritama",
+		"riya hatáng",
+		"tama habang",
+		"tamin",
+		"tefe hawei",
+	],
+	[
+		[
+			({"possessor": "3sg", "root": "hand"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "nose"}, "N", "possessed"),
+		],
+		[
+			({"possession-type": "alienable", "root": "tree"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "hand"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "1sg", "root": "face"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "one's own", "possession-type": "alienable", "root": "rope"}, "N", "possessed"),
+		],
+		[
+			({"root": "shoulder"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "2pl", "root": "mother"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "hand"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "1pl", "possession-type": "alienable", "root": "pig"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "ear"}, "N", "possessed"),
+		],
+		[
+			({"root": "father"}, "N", "possessor"),
+			({"possessor": "3sg", "possession-type": "alienable", "root": "pistol"}, "N", "possessed"),
+		],
+		[
+			({"possession-type": "alienable", "root": "horse"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "neck"}, "N", "possessed"),
+		],
+		[
+			({"root": "pistol"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "ear"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "2pl", "root": "eyes"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "1pl", "root": "nose"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "3sg", "possession-type": "alienable", "root": "knife"}, "N", "possessed"),
+		],
+		[
+			({"root": "sea"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "shoulder"}, "N", "possessed"),
+		],
+		[
+			({"root": "tree"}, "N", "possessor"),
+			({"possessor": "3sg", "root": "neck"}, "N", "possessed"),
+		],
+		[
+			({"root": "hand"}, "N", "possessor"),
+			({"possessor": "3sg", "possession-type": "alienable", "root": "mother"}, "N", "possessed"),
+		],
+		[
+			({"possessor": "2pl", "root": "sea"}, "N", "possessed"),
+		],
+	],
+]
+
+
 if __name__ == "__main__":
-	solve(fur, type="rosetta")
-	solve(permyak, type="rosetta")
-	solve(tamil, type="rosetta")
-	solve(zoque, type="rosetta")
-	solve(tangkhul, type="scrambled_rosetta")
+	# solve(fur, type="rosetta")
+	# solve(permyak, type="rosetta")
+	# solve(tamil, type="rosetta")
+	# solve(zoque, type="rosetta")
+	# solve(swahili, type="scrambled_rosetta")
+	# solve(tangkhul, type="scrambled_rosetta")
+	solve(abui, type="scrambled_rosetta")

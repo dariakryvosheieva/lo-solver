@@ -203,6 +203,7 @@ sophisticatedFeatureMap = {
     "N": [back, nasal, voice],  # continuant],
     "G": [back, voice],
     "ʔ": [sonorant, low],  # laryngeal,
+    "ɦ": [voice, continuant, sonorant, low],  # laryngeal,
     "h": [continuant, sonorant, low],  # laryngeal,
     "ħ": [back, low, continuant, sonorant],
     # glides
@@ -319,6 +320,7 @@ simpleFeatureMap = {
     "N": [uvular, nasal, voice],  # continuant],
     "G": [uvular, stop, voice],
     "ʔ": [laryngeal, stop],
+    "ɦ": [voice, laryngeal, fricative],
     "h": [laryngeal, fricative],
     "ħ": [pharyngeal, fricative],
     # glides

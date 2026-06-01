@@ -927,19 +927,108 @@ class MorphemeSolver:
         # Unsatisfiable for this order
         return None
 
+    def _estimate_order_segmentation_tfed(
+        self,
+        order,
+        beam_width=64,
+        max_break_candidates_per_word=96,
+        empty_piece_penalty=0.5,
+    ):
+        """
+        Bounded TFED-like estimate for ordering morpheme slots.
+
+        This is cheaper than full segmentation search because it keeps only
+        value-level segment consistency stats, not complete segmentation maps.
+        """
+        word_candidates = []
+        for w in self.words:
+            candidates = self.segmenter._generate_break_candidates(w, order)
+            candidates = candidates[:max_break_candidates_per_word]
+            word_candidates.append((w, candidates))
+        word_candidates.sort(key=lambda item: len(item[1]))
+
+        pq = [(0.0, 0, 0, {})]
+        counter = 1
+        best_complete = float("inf")
+
+        while pq:
+            tfed, _, idx, stats = heapq.heappop(pq)
+            if tfed >= best_complete:
+                continue
+            if idx == len(word_candidates):
+                best_complete = tfed
+                if best_complete == 0.0:
+                    return 0.0
+                continue
+
+            w, candidates = word_candidates[idx]
+            vals = self.word_to_slot_values.get(w, {})
+            for breaks in candidates:
+                seg_word = self.segmenter.get_segments(w, order, breaks)
+                delta_tfed = 0.0
+                new_stats = self.segmenter._copy_seg_stats(stats)
+                for slot in order:
+                    if slot not in vals:
+                        continue
+                    key = vals[slot]
+                    seg_piece = seg_word.get(slot, "")
+                    if seg_piece == "":
+                        delta_tfed += empty_piece_penalty
+
+                    sstats = new_stats.setdefault(
+                        key, {"segments": [], "mst_weight": 0.0, "mst_edges": []}
+                    )
+                    old_segments = sstats["segments"]
+                    old_w = float(sstats.get("mst_weight", 0.0))
+                    old_edges = sstats.get("mst_edges", [])
+
+                    new_idx = len(old_segments)
+                    new_edges = [
+                        (float(self.ed.edit_distance(seg_piece, existing_seg)), i, new_idx)
+                        for i, existing_seg in enumerate(old_segments)
+                    ]
+                    cand_edges = list(old_edges) + new_edges
+                    new_w, new_mst_edges = self.segmenter._mst_recompute(
+                        new_idx + 1, cand_edges
+                    )
+
+                    sstats["segments"] = old_segments + [seg_piece]
+                    sstats["mst_weight"] = new_w
+                    sstats["mst_edges"] = new_mst_edges
+                    delta_tfed += new_w - old_w
+
+                new_tfed = tfed + delta_tfed
+                if new_tfed >= best_complete:
+                    continue
+                heapq.heappush(pq, (new_tfed, counter, idx + 1, new_stats))
+                counter += 1
+
+            if len(pq) > beam_width * 2:
+                pq = heapq.nsmallest(beam_width, pq)
+                heapq.heapify(pq)
+
+        return best_complete
+
     def solve(self):
         """Search for morphemes and phonological rules."""
         # Estimate which orders are most likely to be correct; try them first.
         orders = list(itertools.permutations(self.slots))
         scored = [
-            (self.order_scorer.score_order(list(order)), list(order))
+            (
+                self._estimate_order_segmentation_tfed(list(order)),
+                -self.order_scorer.score_order(list(order)),
+                list(order),
+            )
             for order in orders
         ]
-        scored.sort(key=lambda x: -x[0])  # Sort descending by score
+        scored.sort(key=lambda x: (x[0], x[1]))
 
-        for score, order in scored:
+        for estimate, neg_score, order in scored:
             if self.DEBUG:
-                print(f"Trying order (score={score:.2f}): {order}")
+                print(
+                    f"Trying order (estimated_tfed={estimate:.2f}, "
+                    f"score={-neg_score:.2f}): {order}"
+                )
             res = self._solve_with_order(order)
             if res is not None:
                 return res

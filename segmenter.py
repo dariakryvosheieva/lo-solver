@@ -163,8 +163,8 @@ class Segmenter:
         """
         Generate segmentations ranked by total feature edit distance (TFED) using BFS.
 
-        We define TFED as the sum, over all (slot, value) keys i, of TFED_i, where TFED_i
-        is the MST feature edit distance of realizations of key i in the current segmentation.
+        We define TFED as the sum, over all values i, of TFED_i, where TFED_i is the MST
+        feature edit distance of realizations of value i in the current segmentation.
         """
         all_segmentations = []
         best_seg_score = float("inf")
@@ -225,7 +225,7 @@ class Segmenter:
                 for slot in order:
                     if slot not in vals:
                         continue
-                    key = (slot, vals[slot])
+                    key = vals[slot]
                     seg_piece = seg_word.get(slot, "")
 
                     sstats = new_stats.setdefault(

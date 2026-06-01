@@ -725,39 +725,150 @@ beja = (
 	],
 )
 
-# UKLO 2014 R2 P1
-swahili = [
+
+### SEMANTIC MATCHING ###
+
+# IOL 2005 P2
+lango = [
 	[
-		"Alikula",
-		"Atacheza",
-		"Mlifahamu",
-		"Mnapika",
-		"Nilicheza",
-		"Ninakula",
-		"Ninapika",
-		"Nitapika",
-		"Tulifahamu",
-		"Unacheza",
-		"Utapika",
-		"Wanafahamu",
-		"Watapika",
-		"Walicheza",
+		"dyè ɔ̀t",
+		"dyè tyɛ̀n",
+		"gìn",
+		"gìn wìc",
+		"ɲíg",
+		"ɲíg wàŋ",
+		"ɔ̀t cɛ̀m",
+		"wìc ɔ̀t",
 	],
 	[
-		[({"root": "eat", "subject": "he/she", "tense": "PST"}, "V", "V")],
-		[({"root": "play", "subject": "he/she", "tense": "FUT"}, "V", "V")],
-		[({"root": "eat", "subject": "I", "tense": "PRS"}, "V", "V")],
-		[({"root": "play", "subject": "I", "tense": "PST"}, "V", "V")],
-		[({"root": "cook", "subject": "I", "tense": "PRS"}, "V", "V")],
-		[({"root": "cook", "subject": "I", "tense": "FUT"}, "V", "V")],
-		[({"root": "understand", "subject": "they", "tense": "PRS"}, "V", "V")],
-		[({"root": "cook", "subject": "they", "tense": "FUT"}, "V", "V")],
-		[({"root": "play", "subject": "they", "tense": "PST"}, "V", "V")],
-		[({"root": "understand", "subject": "we", "tense": "PST"}, "V", "V")],
-		[({"root": "understand", "subject": "you-pl", "tense": "PST"}, "V", "V")],
-		[({"root": "cook", "subject": "you-pl", "tense": "PRS"}, "V", "V")],
-		[({"root": "play", "subject": "you-sg", "tense": "PRS"}, "V", "V")],
-		[({"root": "cook", "subject": "you-sg", "tense": "FUT"}, "V", "V")],
+		[
+			({"root": "grain"}, "N", "possessed"),
+			({"root": "eye"}, "N", "possessor"),
+		],
+		[
+			({"root": "grain"}, "N", "possessed"),
+		],
+		[
+			({"root": "head"}, "N", "possessed"),
+			({"root": "house"}, "N", "possessor"),
+		],
+		[
+			({"root": "garment"}, "N", "possessed"),
+		],
+		[
+			({"root": "bottom"}, "N", "possessed"),
+			({"root": "house"}, "N", "possessor"),
+		],
+		[
+			({"root": "house"}, "N", "possessed"),
+			({"root": "food"}, "N", "possessor"),
+		],
+		[
+			({"root": "bottom"}, "N", "possessed"),
+			({"root": "foot"}, "N", "possessor"),
+		],
+		[
+			({"root": "garment"}, "N", "possessed"),
+			({"root": "head"}, "N", "possessor"),
+		],
+	],
+]
+
+# Ukraine LO 2018/19, TST tiebreaker, P3
+sanskrit = [
+	[
+		"yah",
+		"tatɦā",
+		"sarvatra",
+		"ekah",
+		"yadā",
+		"tatra",
+		"yatra",
+		"sarvah",
+	],
+	[
+		[({"type": "all", "root": "where"}, "PRN", "none")],
+		[({"type": "interrogative", "root": "where"}, "PRN", "none")],
+		[({"type": "all", "root": "which"}, "PRN", "none")],
+		[({"type": "interrogative", "root": "when"}, "PRN", "none")],
+		[({"type": "interrogative", "root": "which"}, "PRN", "none")],
+		[({"type": "demonstrative", "root": "how"}, "PRN", "none")],
+		[({"type": "demonstrative", "root": "where"}, "PRN", "none")],
+		[({"type": "same", "root": "which"}, "PRN", "none")],
+	]
+]
+
+# IOL 2016 P4
+iatmul = [
+	[
+		"guna vaala",
+		"kaʔik",
+		"kaʔikgu",
+		"klawun",
+		"laavu",
+		"laavuga viʔ",
+		"laavuga",
+		"niʔbu",
+		"niʔbuna vaala",
+		"nyakaʔik",
+		"vi",
+		"viʔwun",
+		"waliniʔbana bâk",
+		"waliniʔbana gu",
+		"waliniʔbana vi",
+	],
+	[
+		[
+			({"root": "banana"}, "N", "N"),
+		],
+		[
+			({"root": "white people", "suffix": "possessor"}, "N", "possessor"),
+			({"root": "pig"}, "N", "N"),
+		],
+		[
+			({"root": "water", "suffix": "possessor"}, "N", "possessor"),
+			({"root": "canoe"}, "N", "N"),
+		],
+		[
+			({"root": "banana", "suffix": "leaves"}, "N", "N"),
+		],
+		[
+			({"root": "white people", "suffix": "possessor"}, "N", "possessor"),
+			({"root": "water"}, "N", "N"),
+		],
+		[
+			({"root": "white people", "suffix": "possessor"}, "N", "possessor"),
+			({"root": "spear"}, "N", "N"),
+		],
+		[
+			({"root": "picture/shadow"}, "N", "N"),
+		],
+		[
+			({"root": "ground/land", "suffix": "possessor"}, "N", "possessor"),
+			({"root": "canoe"}, "N", "N"),
+		],
+		[
+			({"root": "to get", "suffix": "1sg.pst"}, "V", "V"),
+		],
+		[
+			({"root": "picture/shadow", "suffix": "water"}, "N", "N"),
+		],
+		[
+			({"root": "to see", "suffix": "1sg.pst"}, "V", "V"),
+		],
+		[
+			({"root": "sun", "suffix": "picture/shadow"}, "N", "N"),
+		],
+		[
+			({"root": "spear"}, "N", "N"),
+		],
+		[
+			({"root": "banana", "suffix": "leaves"}, "N", "N"),
+			({"root": "to see"}, "V", "V"),
+		],
+		[
+			({"root": "ground/land"}, "N", "N"),
+		],
 	],
 ]
 
@@ -772,4 +883,6 @@ if __name__ == "__main__":
 	solve(kove, type="rosetta")
 	solve(zuni, type="rosetta")
 	solve(beja, type="scrambled_rosetta")
-	solve(swahili, type="scrambled_rosetta")
+	solve(lango, type="scrambled_rosetta")
+	solve(sanskrit, type="scrambled_rosetta")
+	solve(iatmul, type="scrambled_rosetta")
