@@ -543,10 +543,10 @@ abui = [
 
 
 if __name__ == "__main__":
-	# solve(fur, type="rosetta")
-	# solve(permyak, type="rosetta")
-	# solve(tamil, type="rosetta")
-	# solve(zoque, type="rosetta")
-	# solve(swahili, type="scrambled_rosetta")
-	# solve(tangkhul, type="scrambled_rosetta")
+	solve(fur, type="rosetta")
+	solve(permyak, type="rosetta")
+	solve(tamil, type="rosetta")
+	solve(zoque, type="rosetta")
+	solve(swahili, type="scrambled_rosetta")
+	solve(tangkhul, type="scrambled_rosetta")
 	solve(abui, type="scrambled_rosetta")
