@@ -872,6 +872,127 @@ iatmul = [
 	],
 ]
 
+# TOL 2026 R2 P3
+haida = [
+	[
+		"Gáan skáa sGwáansang",
+		"Gáan sk’a hlGúnahl",
+		"Gáadaangw Ga hlGúnahl",
+		"kit’uu sk’a sGwáansang",
+		"kit’uu dáagal sGa stánsang",
+		"kíihlaa dláanwaay Ga sGwáansang",
+		"kíihlaa tl’a sGwáansang",
+		"k’án sGa sGwáansang",
+		"k’án sk’a sdáng",
+		"sándiigaa sGa tléehl",
+		"sgi skáajaaw skáa stánsang",
+		"sgíndaaw tl’a hlGúnahl",
+		"skáy Ga stánsang",
+		"skáy skáa hlGúnahl",
+		"stáw stlíin sk’a tléehl",
+		"xyáay sk’a sdáng",
+		"xyáay tl’a stánsang",
+		"xángaang dláanwaay Ga stánsang",
+	],
+	[
+		[
+			({"root": "one"}, "NUM", "NUM"),
+			({"root": "flat"}, "Q", "Q"),
+			({"root": "tray"}, "N", "N"),
+		],
+		[
+			({"root": "one"}, "NUM", "NUM"),
+			({"root": "container"}, "Q", "Q"),
+			({"root": "basin"}, "N", "N"),
+			({"root": "tray"}, "N", "MOD"),
+		],
+		[
+			({"root": "one"}, "NUM", "NUM"),
+			({"root": "spherical"}, "Q", "Q"),
+			({"root": "berry"}, "N", "N"),
+		],
+		[
+			({"root": "one"}, "NUM", "NUM"),
+			({"root": "slender.hard"}, "Q", "Q"),
+			({"root": "harpoon"}, "N", "N"),
+		],
+		[
+			({"root": "one"}, "NUM", "NUM"),
+			({"root": "other"}, "Q", "Q"),
+			({"root": "grass"}, "N", "N"),
+		],
+		[
+			({"root": "two"}, "NUM", "NUM"),
+			({"root": "slender.hard"}, "Q", "Q"),
+			({"root": "arm"}, "N", "N"),
+		],
+		[
+			({"root": "two"}, "NUM", "NUM"),
+			({"root": "slender.hard"}, "Q", "Q"),
+			({"root": "grass"}, "N", "N"),
+		],
+		[
+			({"root": "three"}, "NUM", "NUM"),
+			({"root": "flat"}, "Q", "Q"),
+			({"root": "rudder"}, "N", "N"),
+		],
+		[
+			({"root": "three"}, "NUM", "NUM"),
+			({"root": "spherical"}, "Q", "Q"),
+			({"root": "shell"}, "N", "N"),
+		],
+		[
+			({"root": "three"}, "NUM", "NUM"),
+			({"root": "container"}, "Q", "Q"),
+			({"root": "bathtub"}, "N", "N"),
+		],
+		[
+			({"root": "three"}, "NUM", "NUM"),
+			({"root": "slender.hard"}, "Q", "Q"),
+			({"root": "berry"}, "N", "N"),
+		],
+		[
+			({"root": "four"}, "NUM", "NUM"),
+			({"root": "flat"}, "Q", "Q"),
+			({"root": "arm"}, "N", "N"),
+		],
+		[
+			({"root": "four"}, "NUM", "NUM"),
+			({"root": "other"}, "Q", "Q"),
+			({"root": "rope"}, "N", "N"),
+			({"root": "harpoon"}, "N", "MOD"),
+		],
+		[
+			({"root": "four"}, "NUM", "NUM"),
+			({"root": "container"}, "Q", "Q"),
+			({"root": "shell"}, "N", "N"),
+		],
+		[
+			({"root": "four"}, "NUM", "NUM"),
+			({"root": "container"}, "Q", "Q"),
+			({"root": "basin"}, "N", "N"),
+			({"root": "washing"}, "N", "MOD"),
+		],
+		[
+			({"root": "four"}, "NUM", "NUM"),
+			({"root": "spherical"}, "Q", "Q"),
+			({"root": "ball"}, "N", "N"),
+			({"root": "baseball"}, "N", "MOD"),
+		],
+		[
+			({"root": "five"}, "NUM", "NUM"),
+			({"root": "slender.hard"}, "Q", "Q"),
+			({"root": "spine"}, "N", "N"),
+			({"root": "sea urchin"}, "N", "MOD"),
+		],
+		[
+			({"root": "five"}, "NUM", "NUM"),
+			({"root": "other"}, "Q", "Q"),
+			({"root": "week"}, "N", "N"),
+		],
+	],
+]
+
 
 if __name__ == "__main__":
 	solve(mizo, type="rosetta")
@@ -886,3 +1007,4 @@ if __name__ == "__main__":
 	solve(lango, type="scrambled_rosetta")
 	solve(sanskrit, type="scrambled_rosetta")
 	solve(iatmul, type="scrambled_rosetta")
+	solve(haida, type="scrambled_rosetta")
