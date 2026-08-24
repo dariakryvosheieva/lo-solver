@@ -850,4 +850,4 @@ def format_solution_rosetta(problem, scrambled=False, debug=False):
 					):
 						pretty_locality_mode = "left neighbor of "
 					print(f"{pretty_locality_mode}({k}, {v}): {r[1].pretty()}")
-	print(f"Time taken: {time.time() - start_time:.2f} s")
+	print(f"Time taken: {time.time() - start_time:.2f} s\n")

@@ -1,7 +1,5 @@
-# LO Solver v0
-This is the beta-release of the **LO Solver**, a symbolic solver for linguistics olympiad problems.
-
-Building upon my final project for Prof. Solar-Lezama's [program synthesis](https://people.csail.mit.edu/asolar/SynthesisCourse/index.htm) class at MIT, the solver uses an approach inspired by symbolic program synthesis to discover solutions to LO problems. The solving process is modeled as a heuristic search over all candidate solutions.
+# LO Solver
+Building upon my final project for Prof. Solar-Lezama's [program synthesis](https://people.csail.mit.edu/asolar/SynthesisCourse/index.htm) class at MIT, the solver uses an approach inspired by **symbolic program synthesis** to discover solutions to **linguistics olympiad (LO)** problems. The solving process is modeled as a heuristic search over all candidate solutions.
 
 This work has been influenced by the paper *[Synthesizing theories of human language with Bayesian program induction](https://www.nature.com/articles/s41467-022-32012-w)* (*Nature*, 2022); many features are borrowed directly from the associated [codebase](https://github.com/ellisk42/bpl_phonology).
 
@@ -13,7 +11,7 @@ This work has been influenced by the paper *[Synthesizing theories of human lang
 
 ## Setup
 
-The solver does not use any third-party Python libraries.
+The solver is written in pure standard Python, without third-party dependencies.
 
 1. Clone the repo:
 ```bash
@@ -275,36 +273,31 @@ The following algorithm is applied to each problem:
 
 #### Rosetta
 
-1. Determine the word order and the English-to-Problemese word mappings.
+1. **Determine the word order and the English-to-Problemese word mappings.** This is done in an SAT-like manner, with "holes" representing word-translation mappings and constraints enforcing consistent word order.
+
 2. For each part of speech:
 
-    1. Sort candidate morpheme orders by how likely they are to be correct.
+    1. **Sort candidate morpheme orders by plausibility.** As a measure of plausibility, we use the total phonological edit distance between instances of the same morpheme in different words (lower is better). At this step, every permutation of morpheme slots is scored by a fast approximation of this objective.
 
     2. For each candidate morpheme order:
 
-        1. Find all plausible segmentations of Problemese words into morphemes.
+        1. **Find all plausible segmentations of Problemese words into morphemes.** We compute the same phonological edit distance objective precisely for every candidate segmentation under the given order, and return segmentations with the optimal objective value.
 
-        2. For each plausible segmentation, find a minimal set of phonological rules that explains all differences in morpheme variants. As soon as such a set is found, go to step 3.
+        2. For each optimal segmentation, **find a minimal set of phonological rules that explains all differences in morpheme variants.** Rules of the form `X ⟶ Y | L _ R` are enumerated exhaustively, but the set of `(X, Y, L, R)` candidates is retricted to observed sound changes and ordered by observed frequency. As soon as a rule set is found, go to step 3.
+
 3. Aggregate phonological rules across parts of speech and return the final output.
 
 #### Scrambled Rosetta
 
-1. Find the most plausible assignments of sentences to translations (and sort them by plausibility).
+1. **Sort candidate assignments of sentences to translations by plausibility** via the same fast heuristic as in Rosetta step 2.1.
 
-2. For each candidate assignment, run the regular Rosetta algorithm. As soon as the algorithm succeeds, return the assignment and the algorithm's solution.
+2. For each candidate assignment, **run steps 2-3 of the regular Rosetta algorithm**. As soon as the algorithm succeeds, return the assignment and the algorithm's solution.
 
 ## Limitations
 
-### Fundamental
-
-* At present, the solver more closely resembles an **aligner between Problemese sentences and pre-specified glosses** than a fully end-to-end linguistic data analysis system. That is, it operates on raw Problemese sentences and *annotated* English translations, rather than both in raw form. This is less of an issue if the Problemese sentences use the same grammatical categories as the English translations, as it suffices to analyze the latter. However, if Problemese uses categories absent from English, such as cases, noun classes etc., the user should discover this and provide appropriate annotations.
-* LO problems usually involve **additional tasks beyond the analysis of the data provided in the main statement**, such as English-to-Problemese and Problemese-to-English translation tasks. The solver cannot handle those, but hopefully the user will be able to handle them more easily after obtaining the lexicon and rules from the solver.
-
-### Future Work
-
-* In the near future, I plan to add problems on counting/numeral systems.
-* Other features I still need to implement: syntactic constituents, vowel harmony, ejectives, word boundary guards.
+* At present, the solver more closely resembles an **aligner between Problemese sentences and pre-specified glosses** than a fully end-to-end linguistic data analysis system. That is, it operates on raw Problemese sentences and *annotated* English translations, rather than both in raw form. This is less of an issue if the Problemese sentences use the same grammatical categories as the English translations, as it suffices to analyze the latter. However, if Problemese marks/distinguishes properties absent from English (cases, noun classes, etc.), the user should discover this and provide appropriate annotations.
+* LO problems usually involve **additional tasks beyond the analysis of the data provided in the main statement**, such as English-to-Problemese and Problemese-to-English translation tasks. The solver cannot handle those, but the user will be able to handle them more easily after obtaining the lexicon and rules from the solver.
 
 ## Intended Use
 
-The solver is intended to help students prepare for LOs, and as a proof of concept that LO problems can be solved automatically. Needless to say, it is *not* intended for cheating in online contests.
+The solver is intended as a proof of concept that LO problems can be solved programmatically, and will hopefully help students prepare for LOs. Needless to say, it is *not* intended for cheating in online contests.
