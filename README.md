@@ -1,5 +1,5 @@
 # LO Solver
-Building upon my final project for Prof. Solar-Lezama's [program synthesis](https://people.csail.mit.edu/asolar/SynthesisCourse/index.htm) class at MIT, the solver uses an approach inspired by **symbolic program synthesis** to discover solutions to **linguistics olympiad (LO)** problems. The solving process is modeled as a heuristic search over all candidate solutions.
+Building upon my final project for Prof. Solar-Lezama's [program synthesis](https://people.csail.mit.edu/asolar/SynthesisCourse/index.htm) class at MIT, the solver uses an approach grounded in **symbolic program synthesis** to discover solutions to **linguistics olympiad (LO)** problems. The solving process is modeled as a heuristic search over all candidate solutions.
 
 This work has been influenced by the paper *[Synthesizing theories of human language with Bayesian program induction](https://www.nature.com/articles/s41467-022-32012-w)* (*Nature*, 2022); many features are borrowed directly from the associated [codebase](https://github.com/ellisk42/bpl_phonology).
 
@@ -273,7 +273,7 @@ The following algorithm is applied to each problem:
 
 #### Rosetta
 
-1. **Determine the word order and the English-to-Problemese word mappings.** This is done in an SAT-like manner, with "holes" representing word-translation mappings and constraints enforcing consistent word order.
+1. **Determine the word order and the English-to-Problemese word mappings.** This is done in a SAT-based manner, with "holes" representing word-translation mappings and constraints enforcing consistent word order.
 
 2. For each part of speech:
 
@@ -281,9 +281,9 @@ The following algorithm is applied to each problem:
 
     2. For each candidate morpheme order:
 
-        1. **Find all plausible segmentations of Problemese words into morphemes.** We compute the same phonological edit distance objective precisely for every candidate segmentation under the given order, and return segmentations with the optimal objective value.
+        1. **Find all plausible segmentations of Problemese words into morphemes.** We construct segmentations of the entire word set word-by-word, with the goal of minimizing the same edit distance objective as in step 2.1 (now computed precisely). We maintain a queue of partial segmentations sorted by edit distance, and prune partial segmentations that cannot lead to an optimal complete segmentation.
 
-        2. For each optimal segmentation, **find a minimal set of phonological rules that explains all differences in morpheme variants.** Rules of the form `X ⟶ Y | L _ R` are enumerated exhaustively, but the set of `(X, Y, L, R)` candidates is retricted to observed sound changes and ordered by observed frequency. As soon as a rule set is found, go to step 3.
+        2. For each optimal segmentation, **find a minimal set of phonological rules that explains all differences in morpheme variants.** Rules of the form `X ⟶ Y | L _ R` are enumerated exhaustively, but the set of `(X, Y, L, R)` candidates is retricted to observed sound changes, and the rules themselves are ranked by how much they improve the edit distance objective. As soon as a complete rule set is found, go to step 3.
 
 3. Aggregate phonological rules across parts of speech and return the final output.
 
